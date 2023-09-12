@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ course.title }}{% endblock %}
+
+{% block content %}
+<h1 class="mt-5"> {{course.title}}</h1>
+<h2>{{course.price}}</h2>
+<p>Price: {{course.price}}</p>
+<p>Studens Quantity: {{course.studens_qty}}</p>
+<form action={{course.url_field}} method="GET">
+    <button class="btn btn-primary">View</button>
+</form>
+
+{% endblock %}

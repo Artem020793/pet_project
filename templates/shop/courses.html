@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}My games{% endblock title %}
+
+{%block content %}
+<table class="table mt-5 table-bordered table-strited table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Title</th>
+      <th>Category</th>
+      <th>Year of release</th>
+      <th>My score</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for course in courses %}
+    <tr>
+      <td>
+        <a href={% url "shop:single_course" course.id %}>{{ course.title }}</a>
+      </td>
+      <td>{{ course.category }}</td>
+      <td>{{course.price}}</td>
+      <td>{{course.studens_qty}}</td>
+      <td>
+        <form action={{course.url_field}} method="GET"><button class="btn btn-primary">View {{course.title}}</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock content %}
